@@ -1,0 +1,3 @@
+[submodule "bamhouse"]
+	path = bamhouse
+	url = https://github.com/nawhew/bamhouse
