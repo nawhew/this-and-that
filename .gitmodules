@@ -1,6 +1,0 @@
-[submodule "bamhouse"]
-	path = bamhouse
-	url = https://github.com/nawhew/bamhouse
-[submodule "dear-my-friends"]
-	path = dear-my-friends
-	url = https://github.com/nawhew/dear-my-friends
