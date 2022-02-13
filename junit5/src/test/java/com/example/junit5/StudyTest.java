@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assumptions.*;
 class StudyTest {
 
     @Test
+    @Tag("LOCAL")
 //    @EnabledIfEnvironmentVariable(named = "TEST_ENV", matches = "local")
     void create() {
         String test_env = System.getenv("TEST_ENV");
