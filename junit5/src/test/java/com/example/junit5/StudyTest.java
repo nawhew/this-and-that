@@ -10,7 +10,9 @@ class StudyTest {
     @Test
     void create() {
         Study study = new Study();
+
         assertNotNull(study);
+        assertEquals(study.getStatus(), StudyStatus.DRAFT);
     }
 
     @Disabled
