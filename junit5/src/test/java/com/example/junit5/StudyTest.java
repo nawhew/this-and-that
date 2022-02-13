@@ -1,18 +1,32 @@
 package com.example.junit5;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledIfEnvironmentVariable;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.*;
 
 @DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class StudyTest {
 
     @Test
+//    @EnabledIfEnvironmentVariable(named = "TEST_ENV", matches = "local")
     void create() {
+        String test_env = System.getenv("TEST_ENV");
+        assumeFalse(test_env != null && test_env.equalsIgnoreCase("PROD"));
+
         Study study = new Study();
 
-        assertNotNull(study);
-        assertEquals(StudyStatus.DRAFT, study.getStatus());
+        assumingThat(
+                test_env != null && test_env.equalsIgnoreCase("PROD")
+                , () -> assertNotNull(study)
+
+        );
+
+        assertAll(
+            () -> assertNotNull(study)
+            , () -> assertEquals(StudyStatus.DRAFT, study.getStatus())
+        );
     }
 
     @Disabled
