@@ -12,7 +12,7 @@ class StudyTest {
         Study study = new Study();
 
         assertNotNull(study);
-        assertEquals(study.getStatus(), StudyStatus.DRAFT);
+        assertEquals(StudyStatus.DRAFT, study.getStatus());
     }
 
     @Disabled
